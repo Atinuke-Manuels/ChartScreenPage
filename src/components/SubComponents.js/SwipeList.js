@@ -67,11 +67,12 @@ const SwipeList = () => {
     setDataList(updatedDataList);
   };
 
+const discount = dataList.reduce((acc, item) => {
+  return acc + (item.price * item.count * 0.01);
+}, 0);
 
 const totalPrice = dataList.reduce((acc, item) => {
-  const price = item.price * item.count;
-  const discount = -60;
-  return acc + price + discount;
+  return acc + (item.price * item.count) - discount/2 ;
 }, 0);
 
 
@@ -147,7 +148,7 @@ const totalPrice = dataList.reduce((acc, item) => {
       />
       <View style = {[tw`flex-row justify-between p-2`, {paddingLeft: 10, paddingRight: 10, paddingTop:4}]}>
       <Text style = {{ color: 'white', fontSize: 16 }}>Discount</Text>
-      <Text style = {[{ color: 'white', fontSize: 16 }, tw`font-semibold `]}>-60</Text>
+      <Text style = {[{ color: 'white', fontSize: 16 }, tw`font-semibold `]}>{-discount}</Text>
       </View>
 </View>
       <View >

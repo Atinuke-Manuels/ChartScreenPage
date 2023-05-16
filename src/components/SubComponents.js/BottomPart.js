@@ -27,6 +27,14 @@ const totalPrice = data.reduce((acc, item) => {
   return acc + price + discount;
 }, 0);
 
+// const totalPrice = dataList.reduce((acc, item) => {
+//   return acc + item.price * item.count;
+// }, 0);
+
+// const discount = dataList.reduce((acc, item) => {
+//   return acc + (item.price * item.count * 0.01);
+// }, 0);
+
 const Bottom = () => {
   return (
 <SafeAreaView style = {styles.containerBtm}>
